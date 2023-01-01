@@ -8,6 +8,14 @@
         <AssemblyName>Pingfan.WebServer</AssemblyName>
         <RootNamespace>Pingfan.WebServer</RootNamespace>
         <PackageId>Pingfan.WebServer</PackageId>
+        <Title>Pingfan.WebServer</Title>
+        <Description>http库, 支持websocket</Description>
+        <PackageProjectUrl>https://github.com/oliverscode/Pingfan.WebServer</PackageProjectUrl>
+        <PackageIcon>logo.png</PackageIcon>
+        <RepositoryUrl>https://github.com/oliverscode/Pingfan.WebServer</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>http,websocket</PackageTags>
+        <PackageLicenseUrl>https://github.com/oliverscode/Pingfan.WebServer</PackageLicenseUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -20,6 +28,13 @@
 
     <ItemGroup>
       <PackageReference Include="Pingfan.Kit" Version="2.2.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../logo.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>

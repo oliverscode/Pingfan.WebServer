@@ -3,8 +3,14 @@
   <metadata>
     <id>Pingfan.WebServer</id>
     <version>1.0.0</version>
+    <title>Pingfan.WebServer</title>
     <authors>Oliver</authors>
-    <description>Package Description</description>
+    <licenseUrl>https://github.com/oliverscode/Pingfan.WebServer</licenseUrl>
+    <icon>logo.png</icon>
+    <projectUrl>https://github.com/oliverscode/Pingfan.WebServer</projectUrl>
+    <description>http库, 支持websocket</description>
+    <tags>http,websocket</tags>
+    <repository type="git" url="https://github.com/oliverscode/Pingfan.WebServer" />
     <dependencies>
       <group targetFramework=".NETCoreApp3.1">
         <dependency id="Pingfan.Kit" version="2.2.9" exclude="Build,Analyzers" />
@@ -19,5 +25,6 @@
     <file src="D:\Projects\Pingfan\Pingfan.WebServer\bin\Release\net6.0\Pingfan.WebServer.xml" target="lib\net6.0\Pingfan.WebServer.xml" />
     <file src="D:\Projects\Pingfan\Pingfan.WebServer\bin\Release\netcoreapp3.1\Pingfan.WebServer.dll" target="lib\netcoreapp3.1\Pingfan.WebServer.dll" />
     <file src="D:\Projects\Pingfan\Pingfan.WebServer\bin\Release\netcoreapp3.1\Pingfan.WebServer.xml" target="lib\netcoreapp3.1\Pingfan.WebServer.xml" />
+    <file src="D:\Projects\Pingfan\logo.png" target="logo.png" />
   </files>
 </package>
