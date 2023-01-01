@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Pingfan.Kit/2.2.9": {
+      "Pingfan.Kit/2.3.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Pingfan.Kit.dll": {
@@ -17,7 +17,7 @@
       }
     },
     "net6.0": {
-      "Pingfan.Kit/2.2.9": {
+      "Pingfan.Kit/2.3.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Pingfan.Kit.dll": {
@@ -33,27 +33,27 @@
     }
   },
   "libraries": {
-    "Pingfan.Kit/2.2.9": {
-      "sha512": "hKHc3dfIjMQ2/FDojR/4hNg+6LQKS2BDTDRAZh9jeojXjLUB0dmKTuiRU+muGhsUYEZouC9EBnNl0c3TOXk+Hw==",
+    "Pingfan.Kit/2.3.2": {
+      "sha512": "bw3rNiGwgSLVLEOqHyVlzbUJO1T0qzbXcb7Qa9YR+m/Lz8YkGNzPjgZ0AX5g7s4KPyFuvdpQtSXhbEImjZkKEw==",
       "type": "package",
-      "path": "pingfan.kit/2.2.9",
+      "path": "pingfan.kit/2.3.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "128.png",
         "lib/netstandard2.0/Pingfan.Kit.dll",
         "lib/netstandard2.0/Pingfan.Kit.xml",
-        "pingfan.kit.2.2.9.nupkg.sha512",
+        "logo.png",
+        "pingfan.kit.2.3.2.nupkg.sha512",
         "pingfan.kit.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Pingfan.Kit >= 2.2.9"
+      "Pingfan.Kit >= 2.3.2"
     ],
     "net6.0": [
-      "Pingfan.Kit >= 2.2.9"
+      "Pingfan.Kit >= 2.3.2"
     ]
   },
   "packageFolders": {
@@ -108,7 +108,7 @@
         "dependencies": {
           "Pingfan.Kit": {
             "target": "Package",
-            "version": "[2.2.9, )"
+            "version": "[2.3.2, )"
           }
         },
         "imports": [
@@ -134,7 +134,7 @@
         "dependencies": {
           "Pingfan.Kit": {
             "target": "Package",
-            "version": "[2.2.9, )"
+            "version": "[2.3.2, )"
           }
         },
         "imports": [

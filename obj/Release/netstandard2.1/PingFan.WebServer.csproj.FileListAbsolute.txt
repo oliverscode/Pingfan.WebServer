@@ -1,5 +1,0 @@
-D:\Projects\Pingfan\PingFan.WebServer\obj\Release\netstandard2.1\PingFan.WebServer.csproj.AssemblyReference.cache
-D:\Projects\Pingfan\PingFan.WebServer\obj\Release\netstandard2.1\PingFan.WebServer.GeneratedMSBuildEditorConfig.editorconfig
-D:\Projects\Pingfan\PingFan.WebServer\obj\Release\netstandard2.1\PingFan.WebServer.AssemblyInfoInputs.cache
-D:\Projects\Pingfan\PingFan.WebServer\obj\Release\netstandard2.1\PingFan.WebServer.AssemblyInfo.cs
-D:\Projects\Pingfan\PingFan.WebServer\obj\Release\netstandard2.1\PingFan.WebServer.csproj.CoreCompileInputs.cache

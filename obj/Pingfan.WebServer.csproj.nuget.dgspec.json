@@ -52,7 +52,7 @@
           "dependencies": {
             "Pingfan.Kit": {
               "target": "Package",
-              "version": "[2.2.9, )"
+              "version": "[2.3.2, )"
             }
           },
           "imports": [
@@ -78,7 +78,7 @@
           "dependencies": {
             "Pingfan.Kit": {
               "target": "Package",
-              "version": "[2.2.9, )"
+              "version": "[2.3.2, )"
             }
           },
           "imports": [

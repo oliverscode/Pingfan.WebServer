@@ -27,7 +27,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Pingfan.Kit" Version="2.2.9" />
+      <PackageReference Include="Pingfan.Kit" Version="2.3.2" />
     </ItemGroup>
 
     <ItemGroup>

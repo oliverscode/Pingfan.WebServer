@@ -13,10 +13,10 @@
     <repository type="git" url="https://github.com/oliverscode/Pingfan.WebServer" />
     <dependencies>
       <group targetFramework=".NETCoreApp3.1">
-        <dependency id="Pingfan.Kit" version="2.2.9" exclude="Build,Analyzers" />
+        <dependency id="Pingfan.Kit" version="2.3.2" exclude="Build,Analyzers" />
       </group>
       <group targetFramework="net6.0">
-        <dependency id="Pingfan.Kit" version="2.2.9" exclude="Build,Analyzers" />
+        <dependency id="Pingfan.Kit" version="2.3.2" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
