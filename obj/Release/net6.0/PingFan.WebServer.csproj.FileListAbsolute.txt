@@ -1,0 +1,13 @@
+D:\Projects\Pingfan\PingFan.WebServer\bin\Release\net6.0\PingFan.WebServer.deps.json
+D:\Projects\Pingfan\PingFan.WebServer\bin\Release\net6.0\PingFan.WebServer.dll
+D:\Projects\Pingfan\PingFan.WebServer\bin\Release\net6.0\PingFan.WebServer.pdb
+D:\Projects\Pingfan\PingFan.WebServer\bin\Release\net6.0\PingFan.WebServer.xml
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\PingFan.WebServer.csproj.AssemblyReference.cache
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\PingFan.WebServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\PingFan.WebServer.AssemblyInfoInputs.cache
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\PingFan.WebServer.AssemblyInfo.cs
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\PingFan.WebServer.csproj.CoreCompileInputs.cache
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\PingFan.WebServer.dll
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\refint\PingFan.WebServer.dll
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\PingFan.WebServer.pdb
+D:\Projects\Pingfan\PingFan.WebServer\obj\Release\net6.0\ref\PingFan.WebServer.dll

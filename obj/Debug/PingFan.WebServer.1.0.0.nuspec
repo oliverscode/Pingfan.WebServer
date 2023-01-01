@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>PingFan.WebServer</id>
+    <version>1.0.0</version>
+    <authors>Oliver</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Pingfan.Kit" version="2.2.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="Pingfan.Kit" version="2.2.9" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Projects\Pingfan\PingFan.WebServer\bin\Debug\net6.0\PingFan.WebServer.dll" target="lib\net6.0\PingFan.WebServer.dll" />
+    <file src="D:\Projects\Pingfan\PingFan.WebServer\bin\Debug\net6.0\PingFan.WebServer.xml" target="lib\net6.0\PingFan.WebServer.xml" />
+    <file src="D:\Projects\Pingfan\PingFan.WebServer\bin\Debug\netcoreapp3.1\PingFan.WebServer.dll" target="lib\netcoreapp3.1\PingFan.WebServer.dll" />
+    <file src="D:\Projects\Pingfan\PingFan.WebServer\bin\Debug\netcoreapp3.1\PingFan.WebServer.xml" target="lib\netcoreapp3.1\PingFan.WebServer.xml" />
+  </files>
+</package>

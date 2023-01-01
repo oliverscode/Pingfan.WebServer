@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Oliver</Authors>
+        <LangVersion>8</LangVersion>
+        <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
+        <AssemblyName>Pingfan.WebServer</AssemblyName>
+        <RootNamespace>Pingfan.WebServer</RootNamespace>
+        <PackageId>Pingfan.WebServer</PackageId>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\Pingfan.WebServer.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\Pingfan.WebServer.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Pingfan.Kit" Version="2.2.9" />
+    </ItemGroup>
+
+</Project>

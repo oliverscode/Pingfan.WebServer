@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "irqjE8I+yqGNailI3QgLjkCli8A6Z15L0sHd/6Uz2eqQT/MjMMrzhkBPItQefKwdqehenCEwAQtDyYJEFkzG7g==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\Pingfan\\Pingfan.WebServer\\Pingfan.WebServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\pingfan.kit\\2.2.9\\pingfan.kit.2.2.9.nupkg.sha512"
+  ],
+  "logs": []
+}

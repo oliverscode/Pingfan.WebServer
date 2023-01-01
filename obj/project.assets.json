@@ -1,0 +1,160 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Pingfan.Kit/2.2.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Pingfan.Kit.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Pingfan.Kit.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    },
+    "net6.0": {
+      "Pingfan.Kit/2.2.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Pingfan.Kit.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Pingfan.Kit.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Pingfan.Kit/2.2.9": {
+      "sha512": "hKHc3dfIjMQ2/FDojR/4hNg+6LQKS2BDTDRAZh9jeojXjLUB0dmKTuiRU+muGhsUYEZouC9EBnNl0c3TOXk+Hw==",
+      "type": "package",
+      "path": "pingfan.kit/2.2.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "128.png",
+        "lib/netstandard2.0/Pingfan.Kit.dll",
+        "lib/netstandard2.0/Pingfan.Kit.xml",
+        "pingfan.kit.2.2.9.nupkg.sha512",
+        "pingfan.kit.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Pingfan.Kit >= 2.2.9"
+    ],
+    "net6.0": [
+      "Pingfan.Kit >= 2.2.9"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Projects\\Pingfan\\Pingfan.WebServer\\Pingfan.WebServer.csproj",
+      "projectName": "Pingfan.WebServer",
+      "projectPath": "D:\\Projects\\Pingfan\\Pingfan.WebServer\\Pingfan.WebServer.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Pingfan\\Pingfan.WebServer\\obj\\",
+      "projectStyle": "PackageReference",
+      "crossTargeting": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0",
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {}
+        },
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "dependencies": {
+          "Pingfan.Kit": {
+            "target": "Package",
+            "version": "[2.2.9, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+      },
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "Pingfan.Kit": {
+            "target": "Package",
+            "version": "[2.2.9, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
