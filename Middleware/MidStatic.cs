@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using Pingfan.Kit;
-using Pingfan.Kit.Caching;
 
-namespace PingFan.WebServer.Middleware
+namespace Pingfan.WebServer.Middleware
 {
     public class MidStaticFile : IMiddleware
     {

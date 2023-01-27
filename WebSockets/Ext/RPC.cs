@@ -6,7 +6,7 @@
 // using System.Threading.Tasks;
 // using Pingfan.Kit;
 //
-// namespace PingFan.WebServer.WebSockets.Ext
+// namespace Pingfan.WebServer.WebSockets.Ext
 // {
 //     public class RPC : WebSocketHandler<WebSocketContext>
 //     {

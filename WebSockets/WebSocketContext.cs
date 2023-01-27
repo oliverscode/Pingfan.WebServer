@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 using Timer = Pingfan.Kit.Timer;
 
-namespace PingFan.WebServer.WebSockets
+namespace Pingfan.WebServer.WebSockets
 {
     /// <summary>
     /// WebSocket对象

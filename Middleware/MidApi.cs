@@ -7,10 +7,9 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Pingfan.Kit;
-using Pingfan.Kit.Convert;
 
 
-namespace PingFan.WebServer.Middleware
+namespace Pingfan.WebServer.Middleware
 {
     /// <summary>
     /// API的中间件

@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Pingfan.Kit/2.3.2": {
+      "Pingfan.Kit/2.3.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Pingfan.Kit.dll": {
@@ -17,7 +17,7 @@
       }
     },
     "net6.0": {
-      "Pingfan.Kit/2.3.2": {
+      "Pingfan.Kit/2.3.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Pingfan.Kit.dll": {
@@ -33,27 +33,27 @@
     }
   },
   "libraries": {
-    "Pingfan.Kit/2.3.2": {
-      "sha512": "bw3rNiGwgSLVLEOqHyVlzbUJO1T0qzbXcb7Qa9YR+m/Lz8YkGNzPjgZ0AX5g7s4KPyFuvdpQtSXhbEImjZkKEw==",
+    "Pingfan.Kit/2.3.3": {
+      "sha512": "syTHof+2PD7Jd8YCr0hggwUttaCq9rjBUGBD24NF4kwRLhYkPC9skJw3KJIvoUKE+BdraEpVhb2DVGa+RZUa3g==",
       "type": "package",
-      "path": "pingfan.kit/2.3.2",
+      "path": "pingfan.kit/2.3.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Pingfan.Kit.dll",
         "lib/netstandard2.0/Pingfan.Kit.xml",
         "logo.png",
-        "pingfan.kit.2.3.2.nupkg.sha512",
+        "pingfan.kit.2.3.3.nupkg.sha512",
         "pingfan.kit.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Pingfan.Kit >= 2.3.2"
+      "Pingfan.Kit >= 2.3.3"
     ],
     "net6.0": [
-      "Pingfan.Kit >= 2.3.2"
+      "Pingfan.Kit >= 2.3.3"
     ]
   },
   "packageFolders": {
@@ -61,7 +61,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.2",
     "restore": {
       "projectUniqueName": "D:\\Projects\\Pingfan\\Pingfan.WebServer\\Pingfan.WebServer.csproj",
       "projectName": "Pingfan.WebServer",
@@ -108,7 +108,7 @@
         "dependencies": {
           "Pingfan.Kit": {
             "target": "Package",
-            "version": "[2.3.2, )"
+            "version": "[2.3.3, )"
           }
         },
         "imports": [
@@ -134,7 +134,7 @@
         "dependencies": {
           "Pingfan.Kit": {
             "target": "Package",
-            "version": "[2.3.2, )"
+            "version": "[2.3.3, )"
           }
         },
         "imports": [

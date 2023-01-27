@@ -8,9 +8,9 @@ using System.Text.RegularExpressions;
 using System.Text.Unicode;
 using System.Threading;
 using Pingfan.Kit;
-using PingFan.WebServer.Tools;
+using Pingfan.WebServer.Tools;
 
-namespace PingFan.WebServer
+namespace Pingfan.WebServer
 {
     public class HttpResponse : IDisposable
     {

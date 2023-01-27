@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace PingFan.WebServer
+namespace Pingfan.WebServer
 {
     // public class HttpContextBase : HttpContextBase<HttpRequestBase, HttpResponseBase>
     // {

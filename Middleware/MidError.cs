@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PingFan.WebServer.Middleware
+namespace Pingfan.WebServer.Middleware
 {
 
     /// <summary>

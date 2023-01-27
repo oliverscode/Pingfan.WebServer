@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PingFan.WebServer.Tools
+namespace Pingfan.WebServer.Tools
 {
     public class HttpMime
     {

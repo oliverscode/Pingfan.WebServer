@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using Pingfan.Kit;
 
-namespace PingFan.WebServer.Middleware
+namespace Pingfan.WebServer.Middleware
 {
 
 

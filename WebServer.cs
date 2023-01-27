@@ -10,13 +10,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using PingFan.WebServer.Tools;
+using Pingfan.WebServer.Tools;
 using Pingfan.Kit;
-using PingFan.WebServer.Middleware;
-using PingFan.WebServer.WebSockets;
-using WebSocketContext = PingFan.WebServer.WebSockets.WebSocketContext;
+using Pingfan.WebServer.Middleware;
+using Pingfan.WebServer.WebSockets;
+using WebSocketContext = Pingfan.WebServer.WebSockets.WebSocketContext;
 
-namespace PingFan.WebServer
+namespace Pingfan.WebServer
 {
     //字符串压缩
     //https://github.com/trullock/NUglify
@@ -145,6 +145,7 @@ namespace PingFan.WebServer
             Loop.RunWithTry(async () =>
             {
                 var httpContext = await _HttpListener.GetContextAsync();
+                
                 // 异步执行
                 Task.Run(async () =>
                 {

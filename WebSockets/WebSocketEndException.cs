@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PingFan.WebServer.WebSockets
+namespace Pingfan.WebServer.WebSockets
 {
     public class WebSocketEndException : Exception
     {

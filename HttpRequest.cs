@@ -8,9 +8,8 @@ using System.Text.RegularExpressions;
 using Pingfan.Kit;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Pingfan.Kit.Convert;
 
-namespace PingFan.WebServer
+namespace Pingfan.WebServer
 {
     public class HttpRequest : IDisposable
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PingFan.WebServer.WebSockets
+namespace Pingfan.WebServer.WebSockets
 {
-    public abstract class IWebSocketHandler
+    public interface IWebSocketHandler
     {
         /// <summary>
         /// 客户端已经连接上后
@@ -22,7 +22,6 @@ namespace PingFan.WebServer.WebSockets
         public virtual void OnReceived(WebSocketContext client, byte[] buffer)
         {
         }
-
 
 
         /// <summary>

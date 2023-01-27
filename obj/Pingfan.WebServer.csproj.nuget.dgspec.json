@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\Projects\\Pingfan\\Pingfan.WebServer\\Pingfan.WebServer.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.2",
       "restore": {
         "projectUniqueName": "D:\\Projects\\Pingfan\\Pingfan.WebServer\\Pingfan.WebServer.csproj",
         "projectName": "Pingfan.WebServer",
@@ -52,7 +52,7 @@
           "dependencies": {
             "Pingfan.Kit": {
               "target": "Package",
-              "version": "[2.3.2, )"
+              "version": "[2.3.3, )"
             }
           },
           "imports": [
@@ -78,7 +78,7 @@
           "dependencies": {
             "Pingfan.Kit": {
               "target": "Package",
-              "version": "[2.3.2, )"
+              "version": "[2.3.3, )"
             }
           },
           "imports": [
