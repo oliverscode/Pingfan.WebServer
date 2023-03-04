@@ -6,8 +6,6 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using Pingfan.Kit;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Pingfan.WebServer
 {
@@ -136,12 +134,14 @@ namespace Pingfan.WebServer
         /// 获取提交的账号密码
         /// </summary>
         /// <returns></returns>
-        public (string user, string pwd) GetAuth()
+        public void GetAuth(out string userName, out string password)
         {
             var authorization = Headers["Authorization"];
             if (string.IsNullOrEmpty(authorization))
             {
-                return (null, null);
+                userName = null;
+                password = null;
+                return;
             }
 
             if (authorization.StartsWith("Basic "))
@@ -152,17 +152,21 @@ namespace Pingfan.WebServer
             try
             {
                 var auth = Encoding.UTF8.GetString(Convert.FromBase64String(authorization));
-                var t = auth.Split(':', 2);
+                var t = auth.Split(':');
                 if (t.Length == 2)
                 {
-                    return (t[0], t[1]);
+                    userName = t[0];
+                    password = t[1];
+                    return;
                 }
             }
             catch (Exception e)
             {
             }
 
-            return (null, null);
+            userName = null;
+            password = null;
+            return;
         }
 
         private string _QueryString;
@@ -287,21 +291,22 @@ namespace Pingfan.WebServer
             }
         }
 
+#if NETCOREAPP
 
-        private JsonDocument _PostJson;
-
-        public JsonDocument PostJson
+        private System.Text.Json.JsonDocument _PostJson;
+        public System.Text.Json.JsonDocument PostJson
         {
             get
             {
                 if (_PostJson == null && PostString.IsNullOrWhiteSpace() == false)
                 {
-                    _PostJson = JsonDocument.Parse(PostString);
+                    _PostJson = System.Text.Json.JsonDocument.Parse(PostString);
                 }
 
                 return _PostJson;
             }
         }
+
 
         /// <summary>
         /// 从POST中获取JSON的根节点中的数据
@@ -309,7 +314,7 @@ namespace Pingfan.WebServer
         /// <param name="name"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public string PostJsonKey(string name, string defaultValue = default(string))
+        public string PostJsonKey(string name, string defaultValue = default)
         {
             return PostJsonKey<string>(name);
         }
@@ -330,7 +335,7 @@ namespace Pingfan.WebServer
 
             return (T) ConvertEx.ChangeType(json.ToString(), typeof(T));
         }
-
+#endif
 
         /// <summary>
         /// 获取请求的Cookie

@@ -2,29 +2,13 @@
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
-using System.Text.Unicode;
-using System.Threading;
-using Pingfan.Kit;
+
 using Pingfan.WebServer.Tools;
 
 namespace Pingfan.WebServer
 {
     public class HttpResponse : IDisposable
     {
-        internal static JsonSerializerOptions _JsonSerializerOptions = new JsonSerializerOptions()
-        {
-            // 中文支持
-            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.Create(UnicodeRanges.All),
-
-            // 忽略空值
-            IgnoreNullValues = true,
-
-            // 全部大写参照上面注释代码
-            // PropertyNamingPolicy = new UpperCaseNamingPolicy(),
-        };
 
 
         private HttpListenerContext _HttpListenerContext = null;
@@ -124,8 +108,8 @@ namespace Pingfan.WebServer
                 {
                     sw.Write(value);
                 }
-               
-                
+
+
             }
         }
 
@@ -214,7 +198,7 @@ namespace Pingfan.WebServer
         }
 
 
-    
+
         /// <summary>
         /// 写入一个字符串
         /// </summary>
@@ -261,7 +245,7 @@ namespace Pingfan.WebServer
                 fs.CopyTo(this.OutputStream);
             }
         }
-
+#if NETCOREAPP
         /// <summary>
         /// 写入一个JSON对象
         /// </summary>
@@ -269,9 +253,23 @@ namespace Pingfan.WebServer
         public void Json(object json)
         {
             this.ContentType = HttpMime.Get(".json");
-            this.Write(JsonSerializer.Serialize(json, _JsonSerializerOptions));
+            this.Write(System.Text.Json.JsonSerializer.Serialize(json, JsonSerializerOptions));
         }
 
+
+        public static System.Text.Json.JsonSerializerOptions JsonSerializerOptions = new System.Text.Json.JsonSerializerOptions()
+        {
+            // 中文支持
+            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.Create(System.Text.Unicode.UnicodeRanges.All),
+
+            // 忽略空值
+            IgnoreNullValues = true,
+
+            // 全部大写参照上面注释代码
+            // PropertyNamingPolicy = new UpperCaseNamingPolicy(),
+        };
+
+#endif
 
         /// <summary>
         /// 清空所有输出缓存

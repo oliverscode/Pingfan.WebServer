@@ -3,8 +3,8 @@
     <PropertyGroup>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Oliver</Authors>
-        <LangVersion>8</LangVersion>
-        <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
+        <LangVersion>10</LangVersion>
+        <TargetFrameworks>net48;net6.0;netcoreapp3.1</TargetFrameworks>
         <AssemblyName>Pingfan.WebServer</AssemblyName>
         <RootNamespace>Pingfan.WebServer</RootNamespace>
         <PackageId>Pingfan.WebServer</PackageId>
@@ -16,7 +16,7 @@
         <RepositoryType>git</RepositoryType>
         <PackageTags>http,websocket</PackageTags>
         <PackageLicenseUrl>https://github.com/oliverscode/Pingfan.WebServer</PackageLicenseUrl>
-        <Version>1.0.3</Version>
+        <Version>1.0.4</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -28,14 +28,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Pingfan.Kit" Version="2.3.3" />
-    </ItemGroup>
-
-    <ItemGroup>
         <None Include="../logo.png">
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Pingfan.Kit" Version="3.0.0" />
     </ItemGroup>
 
 </Project>

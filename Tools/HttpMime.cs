@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pingfan.Kit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -48,7 +49,7 @@ namespace Pingfan.WebServer.Tools
             if (Mimes.ContainsKey(key))
                 return Mimes[key];
 
-            var item = Mimes.FirstOrDefault(p => p.Key.Contains(key, StringComparison.OrdinalIgnoreCase));
+            var item = Mimes.FirstOrDefault(p => p.Key.ContainsIgnoreCase(key)   );
             if (item.Value != null)
                 return item.Value;
             return "application/octet-stream";

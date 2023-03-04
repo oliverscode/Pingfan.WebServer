@@ -4,12 +4,10 @@ using System.ComponentModel;
 using System.Net;
 using System.Net.WebSockets;
 using System.Text;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Timer = Pingfan.Kit.Timer;
 
 namespace Pingfan.WebServer.WebSockets
 {
@@ -49,15 +47,16 @@ namespace Pingfan.WebServer.WebSockets
                 CancellationToken.None);
         }
 
+#if NETCOREAPP
         /// <summary>
         /// 发送一个JSON对象
         /// </summary>
         /// <param name="data"></param>
         public void Send(object data)
         {
-            Send(JsonSerializer.Serialize(data, HttpResponse._JsonSerializerOptions));
+            Send(System.Text.Json.JsonSerializer.Serialize(data, HttpResponse.JsonSerializerOptions));
         }
-
+#endif
 
 
         /// <summary>

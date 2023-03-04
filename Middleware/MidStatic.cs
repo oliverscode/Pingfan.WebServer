@@ -4,6 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Pingfan.Kit;
 
+
 namespace Pingfan.WebServer.Middleware
 {
     public class MidStaticFile : IMiddleware
@@ -22,17 +23,19 @@ namespace Pingfan.WebServer.Middleware
         /// 添加一个静态文件映射目录
         /// </summary>
         /// <param name="dir">本地绝对目录</param>
-        public void AddDirectory(string dir)
+        public bool AddDirectory(string dir)
         {
-            if (dir.EndsWith(Path.DirectorySeparatorChar) == false)
+           
+            if (dir.EndsWith(Path.DirectorySeparatorChar.ToString()) == false)
             {
                 dir += Path.DirectorySeparatorChar;
             }
 
             // 目录不存在就不添加了
             if (Directory.Exists(dir) == false)
-                return;
+                return false;
             _WWWRoot.Add(dir);
+            return true;
         }
 
         /// <summary>
@@ -66,7 +69,7 @@ namespace Pingfan.WebServer.Middleware
 
         public void Invoke(HttpContext ctx, Action<HttpContext> next)
         {
-            var fileName = ctx.Request.LocalPath.EndsWith('/') ? "" : ctx.Request.LocalPath;
+            var fileName = ctx.Request.LocalPath.EndsWith("/") ? "" : ctx.Request.LocalPath;
 
             // 判断本地是否存在这个文件
             foreach (var path in _WWWRoot)
