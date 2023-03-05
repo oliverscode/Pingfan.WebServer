@@ -16,7 +16,7 @@
         <RepositoryType>git</RepositoryType>
         <PackageTags>http,websocket</PackageTags>
         <PackageLicenseUrl>https://github.com/oliverscode/Pingfan.WebServer</PackageLicenseUrl>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -27,7 +27,15 @@
       <DocumentationFile>bin\Release\Pingfan.WebServer.xml</DocumentationFile>
     </PropertyGroup>
 
-    <ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+		<PackageReference Include="System.Text.Json" Version="7.0.2" />
+	</ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<WarningLevel>3</WarningLevel>
+		<NoWarn>1701;1702;1591</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
         <None Include="../logo.png">
         <Pack>True</Pack>
         <PackagePath></PackagePath>
@@ -36,6 +44,10 @@
 
     <ItemGroup>
       <PackageReference Include="Pingfan.Kit" Version="3.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Pingfan.Kit\Pingfan.Kit.csproj" />
     </ItemGroup>
 
 </Project>

@@ -274,10 +274,6 @@ namespace Pingfan.WebServer
         /// <summary>
         /// 获取key=value形式POST中的数据, 同时转换好类型
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="dValue"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
         public T PostKV<T>(string key, T defaultValue = default(T))
         {
             var data = PostKV(key);
@@ -291,7 +287,7 @@ namespace Pingfan.WebServer
             }
         }
 
-#if NETCOREAPP
+
 
         private System.Text.Json.JsonDocument _PostJson;
         public System.Text.Json.JsonDocument PostJson
@@ -335,7 +331,7 @@ namespace Pingfan.WebServer
 
             return (T) ConvertEx.ChangeType(json.ToString(), typeof(T));
         }
-#endif
+
 
         /// <summary>
         /// 获取请求的Cookie

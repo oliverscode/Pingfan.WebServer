@@ -28,6 +28,9 @@ namespace Pingfan.WebServer
     // {
     // }
 
+    /// <summary>
+    /// Http服务器支持WebSocket
+    /// </summary>
     public class WebServer
         //  where TWebSocketContext : WebSocketContext, new()
     {

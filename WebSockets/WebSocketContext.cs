@@ -47,7 +47,7 @@ namespace Pingfan.WebServer.WebSockets
                 CancellationToken.None);
         }
 
-#if NETCOREAPP
+
         /// <summary>
         /// 发送一个JSON对象
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pingfan.WebServer.WebSockets
         {
             Send(System.Text.Json.JsonSerializer.Serialize(data, HttpResponse.JsonSerializerOptions));
         }
-#endif
+
 
 
         /// <summary>

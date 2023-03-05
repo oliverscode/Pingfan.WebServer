@@ -245,7 +245,7 @@ namespace Pingfan.WebServer
                 fs.CopyTo(this.OutputStream);
             }
         }
-#if NETCOREAPP
+
         /// <summary>
         /// 写入一个JSON对象
         /// </summary>
@@ -269,7 +269,7 @@ namespace Pingfan.WebServer
             // PropertyNamingPolicy = new UpperCaseNamingPolicy(),
         };
 
-#endif
+
 
         /// <summary>
         /// 清空所有输出缓存

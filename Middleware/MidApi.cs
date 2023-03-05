@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Pingfan.Kit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Pingfan.Kit;
 
 
 namespace Pingfan.WebServer.Middleware
@@ -43,7 +41,6 @@ namespace Pingfan.WebServer.Middleware
         /// <summary>
         /// 添加一组控制器
         /// </summary>
-        /// <param name="controlName">控制器前缀, 例如:api/</param>
         /// <typeparam name="THttpContext">必须是HttpContext的子类</typeparam>
         /// <exception cref="Exception"></exception>
         public void Add<THttpContext>(string urlPrefix) where THttpContext : HttpContext
@@ -127,7 +124,6 @@ namespace Pingfan.WebServer.Middleware
                         continue;
                     }
 
-#if NETCOREAPP
                     // 从POST JSON中获取
                     v = ctx.Request.PostJsonKey(p.Name);
                     if (v.IsNullOrWhiteSpace() == false)
@@ -135,7 +131,7 @@ namespace Pingfan.WebServer.Middleware
                         args[i] = ConvertEx.ChangeType(v, p.ParameterType);
                         continue;
                     }
-#endif
+
                     // 从GET中获取
                     v = ctx.Request.Get(p.Name);
                     if (v.IsNullOrWhiteSpace() == false)

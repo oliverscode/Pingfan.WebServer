@@ -1,13 +1,10 @@
 ﻿using System;
-using System.IO;
 using System.Text;
 using Pingfan.Kit;
 
 
 namespace Pingfan.WebServer.Middleware
 {
-
-
     public class MidLog: IMiddleware
     {
         /// <summary>
