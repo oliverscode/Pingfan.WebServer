@@ -16,7 +16,7 @@
         <RepositoryType>git</RepositoryType>
         <PackageTags>http,websocket</PackageTags>
         <PackageLicenseUrl>https://github.com/oliverscode/Pingfan.WebServer</PackageLicenseUrl>
-        <Version>1.0.5</Version>
+        <Version>1.0.6</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -43,7 +43,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Pingfan.Kit" Version="3.0.0" />
+      <PackageReference Include="Pingfan.Kit" Version="3.0.1" />
     </ItemGroup>
 
     <ItemGroup>
