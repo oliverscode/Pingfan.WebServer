@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Pinfan.WebServer</Title>
+        <Authors>Oliver</Authors>
+        <Description>http库, 支持websocket</Description>
+        <PackageTags>http,websocket</PackageTags>
+
+        <PackageProjectUrl>https://github.com/oliverscode/Pingfan.WebServer</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/oliverscode/Pingfan.WebServer</RepositoryUrl>
+        <PackageIcon>logo.png</PackageIcon>
+        <PackageLicenseUrl>https://github.com/oliverscode/Pingfan.WebServer</PackageLicenseUrl>
+
+
+    </PropertyGroup>
+
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\Pingfan.WebServer.xml</DocumentationFile>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <None Include="./logo.png">
+            <Pack>True</Pack>
+        </None>
+    </ItemGroup>
+</Project>
