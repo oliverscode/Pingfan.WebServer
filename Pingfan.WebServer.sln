@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pingfan.WebServer", "Pingfan.WebServer\Pingfan.WebServer.csproj", "{D0F9082D-205F-4C26-8D96-1B940AA28DCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{DEFD2FE7-8470-4EA3-A510-46610342117B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{D0F9082D-205F-4C26-8D96-1B940AA28DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0F9082D-205F-4C26-8D96-1B940AA28DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0F9082D-205F-4C26-8D96-1B940AA28DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEFD2FE7-8470-4EA3-A510-46610342117B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEFD2FE7-8470-4EA3-A510-46610342117B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEFD2FE7-8470-4EA3-A510-46610342117B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEFD2FE7-8470-4EA3-A510-46610342117B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
