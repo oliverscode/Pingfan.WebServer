@@ -6,7 +6,7 @@ namespace Pingfan.WebServer.Interfaces;
 
 public interface IHttpRequest : IDisposable
 {
-    protected internal HttpListenerRequest ListenerRequest { get; }
+    protected internal HttpListenerContext HttpListenerContext { get; }
 
     Uri? Url { get; }
     string? LocalPath { get; }

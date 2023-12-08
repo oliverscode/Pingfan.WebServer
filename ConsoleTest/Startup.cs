@@ -1,5 +1,4 @@
-﻿
-using Pingfan.Inject;
+﻿using Pingfan.Inject;
 using Pingfan.WebServer;
 using Pingfan.WebServer.Interfaces;
 
@@ -11,19 +10,24 @@ public class Startup : IContainerReady
 
     public void OnContainerReady()
     {
-        Container.UseWebServer(config => { config.Port = 8080; });
+        var webServer = Container.UseWebServer(config => { config.Port = 8080; });
+        // webServer.BeginRequest += (ctx) =>
+        // {
+        //     ctx.Response.SendChunked = false;
+        //     ctx.Response.Write("Hello World");
+        // };
     }
 }
 
 public static class WebServerExtensions
 {
-    public static void UseWebServer(this IContainer container, Action<WebServerConfig> func)
+    public static WebServer UseWebServer(this IContainer container, Action<WebServerConfig> func)
     {
         var config = new WebServerConfig();
         func(config);
         container.Push(config);
-        
-        
-        container.New<WebServer>();
+
+
+        return container.New<WebServer>();
     }
 }

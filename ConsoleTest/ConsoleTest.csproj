@@ -11,4 +11,10 @@
       <ProjectReference Include="..\Pingfan.WebServer\Pingfan.WebServer.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Pingfan.Inject">
+        <HintPath>..\..\Pingfan.Inject\Pingfan.Inject\bin\Release\netstandard2.0\Pingfan.Inject.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
