@@ -15,8 +15,3 @@ Desktop.ini
 *.zip
 *.log
 
-Public/
-/Pingfan.WebServer/
-/Pingfan.Kit/
-/TestResults/
-/TestFrameWork/

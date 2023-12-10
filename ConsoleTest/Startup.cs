@@ -14,6 +14,14 @@ public class Startup : IContainerReady
     {
         var webServer = Container.UseWebServer(config => { config.Port = 8080; });
         
+        var staticFile = Container.New<MidStaticFile>();
+        staticFile.AddDirectory("/", "D:\\露营照片");
+        // staticFile.AddDirectory("/",  AppDomain.CurrentDomain.BaseDirectory );
+        staticFile.AddDirectory("/",  "www" );
+        
+        webServer.UseMiddleware(staticFile);
+        
+        
         var log = Container.New<MidLog>();
         log.HttpMethod = "GET,POST";
         log.LogHandler = Console.WriteLine;
@@ -23,13 +31,15 @@ public class Startup : IContainerReady
         var api = this.Container.New<MidApi>();
         api.Add<Home>();
         webServer.UseMiddleware(api);
+        
+        
 
 
-        webServer.BeginRequest += (ctx) =>
-        {
-            ctx.Response.SendChunked = false;
-            ctx.Response.Write("Hello World");
-        };
+        // webServer.BeginRequest += (ctx) =>
+        // {
+        //     ctx.Response.SendChunked = false;
+        //     ctx.Response.Write("Hello World");
+        // };
         webServer.RequestError += (ctx, ex) =>
         {
             if (ex is InjectNotRegisteredException injectNotRegisteredException)
