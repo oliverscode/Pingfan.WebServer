@@ -9,6 +9,9 @@ using Pingfan.WebServer.Interfaces;
 
 namespace Pingfan.WebServer.Middlewares;
 
+/// <summary>
+/// Api中间件, 会自动注入ControllerName和ActionName
+/// </summary>
 public class MidApi : IMiddleware
 {
     /// <summary>
@@ -39,49 +42,8 @@ public class MidApi : IMiddleware
             return;
         }
 
-        // 解析所有Header参数
-        // var headers = ctx.Request.Headers;
-        // foreach (var key in headers.AllKeys)
-        // {
-        //     if (string.IsNullOrWhiteSpace(key)) continue;
-        //     var value = headers[key] ?? string.Empty;
-        //     InjectValue(container, value, key);
-        // }
-
-        // 解析所有Cookie参数
-        // var cookies = ctx.Request.Cookies;
-        // foreach (string key in cookies)
-        // {
-        //     if (string.IsNullOrWhiteSpace(key)) continue;
-        //     var value = cookies[key]?.Value ?? string.Empty;
-        //     InjectValue(container, value, key);
-        // }
-        //
-        //
-        // // 解析所有GET参数
-        // var query = ctx.Request.Url!.Query;
-        // var queryDict = HttpUtility.ParseQueryString(query);
-        // foreach (string key in queryDict)
-        // {
-        //     if (string.IsNullOrWhiteSpace(key))
-        //         continue;
-        //     var value = queryDict[key] ?? string.Empty;
-        //     InjectValue(container, value, key);
-        // }
-        //
-        //
-        // // 解析所有POST参数
-        // var form = ctx.Request.Body;
-        // var formDict = HttpUtility.ParseQueryString(form);
-        // foreach (string key in formDict)
-        // {
-        //     if (string.IsNullOrWhiteSpace(key))
-        //         continue;
-        //
-        //     var value = formDict[key] ?? string.Empty;
-        //     InjectValue(container, value, key);
-        // }
-
+        container.Push<string>(item.InstanceType.Name, "ControllerName");
+        container.Push<string>(item.MethodInfo.Name, "ActionName");
 
         var args = new object?[item.ParameterInfos.Length];
         for (var i = 0; i < args.Length; i++)

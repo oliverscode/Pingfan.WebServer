@@ -63,7 +63,6 @@ public class WebServer : IContainerReady
     {
         while (true)
         {
-            // var httpListenerContext = await _httpListener.GetContextAsync();
             var httpListenerContext = await _httpListener.GetContextAsync();
             ThreadPool.QueueUserWorkItem((obj) =>
             {
@@ -71,6 +70,7 @@ public class WebServer : IContainerReady
                 ExecuteHttpContext(context);
             }, httpListenerContext);
         }
+        // ReSharper disable once FunctionNeverReturns
     }
 
     // 正式执行流程
@@ -96,8 +96,8 @@ public class WebServer : IContainerReady
             else
                 httpListenerContext.Response.Headers.Add("Server", Config.DefaultServerName);
             httpListenerContext.Response.Headers["Date"] = "";
-            
-         
+
+
             // 如果http协议大于1.1 就启用SendChunked
             // if (httpContext.Request.HttpListenerContext.Request.ProtocolVersion >= HttpVersion.Version11)
             // {
@@ -126,6 +126,9 @@ public class WebServer : IContainerReady
             this.EndRequest?.Invoke(httpContext);
         }
         catch (HttpEndException)
+        {
+        }
+        catch (HttpArgumentException)
         {
         }
         catch (Exception ex)
