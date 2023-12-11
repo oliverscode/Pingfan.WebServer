@@ -14,6 +14,7 @@
         <RepositoryUrl>https://github.com/oliverscode/Pingfan.WebServer</RepositoryUrl>
         <PackageLicenseUrl>https://github.com/oliverscode/Pingfan.WebServer</PackageLicenseUrl>
         <PackageIcon>logo.png</PackageIcon>
+        <Version>1.5.0</Version>
 
 
     </PropertyGroup>
@@ -34,8 +35,6 @@
 
 
     <ItemGroup>
-      <Reference Include="Pingfan.Inject">
-        <HintPath>..\..\Pingfan.Inject\Pingfan.Inject\bin\Release\netstandard2.0\Pingfan.Inject.dll</HintPath>
-      </Reference>
+      <PackageReference Include="Pingfan.Inject" Version="1.0.2" />
     </ItemGroup>
 </Project>
