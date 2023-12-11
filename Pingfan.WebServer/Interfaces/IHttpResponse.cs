@@ -22,5 +22,6 @@ public interface IHttpResponse : IDisposable
     void Write(object? json);
     void Write(byte[] buffer);
     void Write(Stream stream);
+    void Clear();
     void End();
 }

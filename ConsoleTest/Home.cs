@@ -1,10 +1,18 @@
 ﻿using Pingfan.WebServer;
+using Pingfan.WebServer.Interfaces;
 using Pingfan.WebServer.Middlewares;
 
 namespace ConsoleTest;
 
 public class Home
 {
+    public Home(IHttpResponse response)
+    {
+        Response = response;
+    }
+
+    public IHttpResponse Response { get; }
+
     public string Index(string name, long age)
     {
         return $"name={name}, age={age}";
@@ -23,7 +31,13 @@ public class Home
     public object Start(Person person)
     {
         return $"Start name={person.Name}, age={person.Age}";
-        
+    }
+
+    public string ResTest()
+    {
+        Response.Write("ok!");
+        Response.OutputStream.Close();
+        return "这样也可以";
     }
 }
 

@@ -92,27 +92,18 @@ public class WebServer : IContainerReady
         try
         {
             if (IsWindows)
-            {
                 httpListenerContext.Response.Headers["Server"] = "";
-            }
-
             else
-            {
                 httpListenerContext.Response.Headers.Add("Server", Config.DefaultServerName);
-            }
-
             httpListenerContext.Response.Headers["Date"] = "";
-
-            httpContext.Response.SendChunked = false;
-            //  httpContext.Response.StatusCode = 100;
-
-
+            
+         
             // 如果http协议大于1.1 就启用SendChunked
-            if (httpContext.Request.HttpListenerContext.Request.ProtocolVersion >= HttpVersion.Version11)
-            {
-                httpListenerContext.Response.SendChunked = true;
-                httpContext.Response.KeepAlive = true;
-            }
+            // if (httpContext.Request.HttpListenerContext.Request.ProtocolVersion >= HttpVersion.Version11)
+            // {
+            //     httpListenerContext.Response.SendChunked = true;
+            //     httpContext.Response.KeepAlive = true;
+            // }
 
             this.BeginRequest?.Invoke(httpContext);
 

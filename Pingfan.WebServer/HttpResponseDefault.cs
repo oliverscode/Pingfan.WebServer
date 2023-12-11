@@ -153,6 +153,11 @@ public class HttpResponseDefault : IHttpResponse
         }
     }
 
+    public void Clear()
+    {
+        OutputStream.SetLength(0);
+    }
+
 
     public void End()
     {

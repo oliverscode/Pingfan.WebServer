@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.IO.Compression;
+using System.Text.RegularExpressions;
 using Pingfan.Inject;
 using Pingfan.WebServer.Interfaces;
 
@@ -58,6 +59,7 @@ public class MidStaticFile : IMiddleware
         };
 
 
+
     // /// <summary>
     // /// 最大速度, 默认10M/s
     // /// </summary>
@@ -68,7 +70,7 @@ public class MidStaticFile : IMiddleware
     /// 添加一个静态文件映射目录 http://localhost/{prefix}/xxx.html => {dir}/xxx.html
     /// </summary>
     /// <param name="prefix">前缀, 一般写/即可</param>
-    /// <param name="dir">本地绝对目录</param>
+    /// <param name="dir">本地相对或者绝对目录, 例如 www</param>
     public bool AddDirectory(string prefix, string dir)
     {
         if (dir.EndsWith(Path.DirectorySeparatorChar.ToString()) == false)
@@ -162,7 +164,18 @@ public class MidStaticFile : IMiddleware
 
     private void WriteTo(string path, IHttpContext ctx)
     {
-        long fileSize = new FileInfo(path).Length;
+        var ext = Path.GetExtension(path);
+        var mime = GetMime(ext);
+        ctx.Response.ContentType = mime;
+        using var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+        WriteTo(fs, ctx);
+
+    }
+
+
+    private void WriteTo(Stream stream, IHttpContext ctx)
+    {
+        long fileSize = stream.Length;
         long start = 0, end = fileSize - 1;
         int statusCode = 200;
 
@@ -188,28 +201,20 @@ public class MidStaticFile : IMiddleware
         }
 
         ctx.Response.StatusCode = statusCode;
-        ctx.Response.ContentType = GetMime(path);
 
 
         if (statusCode == 206)
         {
             ctx.Response.Headers["Content-Range"] = $"bytes {start}-{end}/{fileSize}";
             ctx.Response.Headers["Accept-Ranges"] = "bytes";
-            // ctx.Response.Headers["Content-Length"] = (end - start + 1).ToString();
-
             ctx.Response.HttpListenerContext.Response.ContentLength64 = (end - start + 1);
         }
-        else
-        {
-            // ctx.Response.Headers["Content-Length"] = fileSize.ToString();
-            // ctx.Response.HttpListenerContext.Response.ContentLength64 = fileSize;
-        }
 
-        using var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+        using var fs = stream;
         fs.Seek(start, SeekOrigin.Begin);
 
-        byte[] buffer = new byte[1024 * 64]; // 64KB buffer
-        long bytesToRead = end - start + 1;
+        var buffer = new byte[1024 * 64]; // 64KB buffer
+        var bytesToRead = end - start + 1;
         while (bytesToRead > 0)
         {
             int bytesRead = fs.Read(buffer, 0, (int)Math.Min(bytesToRead, buffer.Length));
