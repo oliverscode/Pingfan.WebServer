@@ -19,6 +19,12 @@ public class Startup : IContainerReady
         error.OnError += (ctx, err) => { Console.WriteLine("发生错误" + err); };
         webServer.UseMiddleware(error);
 
+        
+        var webSocket = Container.New<MidWebSocket>();
+        webSocket.Add<Game>("/");
+        webServer.UseMiddleware(webSocket);
+       
+        
 
         var staticFile = Container.New<MidStaticFile>();
         staticFile.AddDirectory("/", "D:\\露营照片");

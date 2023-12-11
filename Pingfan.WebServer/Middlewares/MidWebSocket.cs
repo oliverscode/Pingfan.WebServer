@@ -2,42 +2,16 @@
 using System.Text;
 using Pingfan.Inject;
 using Pingfan.WebServer.Interfaces;
+using Pingfan.WebServer.Middlewares.Websockets;
 
 namespace Pingfan.WebServer.Middlewares;
 
 public class MidWebSocket : IMiddleware
 {
+    private readonly List<WebSocketItem> _webSockets = new List<WebSocketItem>();
     public Encoding Encoding { get; set; } = Encoding.UTF8;
 
-    /// <summary>
-    /// 检查请求是否合法
-    /// </summary>
-    public event Func<IHttpContext, bool> Check = null!;
-
-    /// <summary>
-    /// 客户端已经连接上后
-    /// </summary>
-    // public void OnOpen(WebSocketContext context);
-    public event Action<Websockets.WebSocketContext>? Open;
-
-    /// <summary>
-    /// 客户端关闭后
-    /// </summary>
-    public event Action<Websockets.WebSocketContext>? Close;
-
-    // /// <summary>
-    // /// 收到数据
-    // /// </summary>
-    public event Action<Websockets.WebSocketContext, byte[]>? Binary;
-
-    //
-    // /// <summary>
-    // /// 收到文本数据
-    // /// </summary>
-    public event Action<Websockets.WebSocketContext, string>? Message;
-
-    
-    public async void Invoke(IContainer container, IHttpContext ctx, Action next)
+    public void Invoke(IContainer container, IHttpContext ctx, Action next)
     {
         if (ctx.Request.HttpListenerContext.Request.IsWebSocketRequest == false)
         {
@@ -45,43 +19,71 @@ public class MidWebSocket : IMiddleware
             return;
         }
 
-
-        if (Check.Invoke(ctx) == false)
+        var path = ctx.Request.Path;
+        var item = _webSockets.FirstOrDefault(p => string.Equals(path, p.Path, StringComparison.OrdinalIgnoreCase));
+        if (item == null)
         {
             next();
             return;
         }
 
-        var subProtocol = ctx.Request.HttpListenerContext.Request.Headers["Sec-WebSocket-Protocol"];
-        var listenerWebSocketContext = await ctx.Request.HttpListenerContext.AcceptWebSocketAsync(subProtocol);
-
-        container.Push<HttpListenerWebSocketContext>(listenerWebSocketContext);
-        var webSocketContext = container.New<Websockets.WebSocketContext>();
-
-        Open?.Invoke(webSocketContext);
-        // 接收数据
-        while (webSocketContext.WebSocket.State == WebSocketState.Open)
+        var protocol = ctx.Request.Headers["Sec-WebSocket-Protocol"];
+        var listenerWebSocketContext = ctx.Request.HttpListenerContext.AcceptWebSocketAsync(protocol).Result;
+        container.Push(listenerWebSocketContext);
+        container.Push(Encoding);
+        var webSocketContext = (IWebSocketContext)container.New(item.InstanceType);
+        if (webSocketContext.OnCheck() == false)
         {
-            var buffer = new byte[1024 * 4];
-            var result = await webSocketContext.WebSocket.ReceiveAsync(new ArraySegment<byte>(buffer),
-                CancellationToken.None);
+            return;
+        }
+
+        webSocketContext.OnOpen();
+
+
+        // 接收数据
+        var buffer = new byte[1024 * 4];
+        while (webSocketContext.IsAvailable)
+        {
+            var result =  webSocketContext.WebSocket.ReceiveAsync(new ArraySegment<byte>(buffer),
+                CancellationToken.None).Result;
             if (result.MessageType == WebSocketMessageType.Close)
             {
-                Close?.Invoke(webSocketContext);
-                await webSocketContext.WebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty,
-                    CancellationToken.None);
+                webSocketContext.OnClose();
                 break;
             }
 
             if (result.MessageType == WebSocketMessageType.Binary)
             {
-                Binary?.Invoke(webSocketContext, buffer);
+                webSocketContext.OnBinary(buffer);
             }
             else if (result.MessageType == WebSocketMessageType.Text)
             {
-                var msg = Encoding.GetString(buffer);
-                Message?.Invoke(webSocketContext, msg);
+                var txt = Encoding.GetString(buffer, 0, result.Count);
+                webSocketContext.OnMessage(txt);
             }
         }
+    }
+
+
+    public void Add<T>(string path = "/") where T : IWebSocketContext
+    {
+        var type = typeof(T);
+        Add(path, type);
+    }
+
+    public void Add(string path, Type type)
+    {
+        _webSockets.Add(new WebSocketItem
+        {
+            Path = path,
+            InstanceType = type
+        });
+    }
+
+
+    private class WebSocketItem
+    {
+        public string Path { get; set; } = null!;
+        public Type InstanceType { get; set; } = null!;
     }
 }

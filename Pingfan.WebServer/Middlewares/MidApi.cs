@@ -211,7 +211,7 @@ public class MidApi : IMiddleware
         Add<T>(null);
     }
 
-    public void Add<T>(string? urlPrefix)
+    public void Add<T>(string? urlPrefix) where T : class
     {
         var type = typeof(T);
         Add(urlPrefix, type);

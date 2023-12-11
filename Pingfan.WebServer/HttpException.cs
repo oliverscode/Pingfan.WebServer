@@ -21,3 +21,10 @@ public class HttpArgumentException : Exception
         Name = name;
     }
 }
+
+/// <summary>
+/// 关闭WebSocket
+/// </summary>
+public class WebSocketEndException : Exception
+{
+}
